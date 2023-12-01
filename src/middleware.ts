@@ -31,5 +31,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|robots.txt|sitemap.xml|images).*)'],
+  matcher: ['/((?!_next|robots.txt|sitemap.xml|images|api).*)'],
 };
