@@ -1,5 +1,6 @@
 import { getDictionary } from '@/lib/dictionaries';
 import { type Locale } from '@/i18n-config';
+
 import { Heading } from '@/components/atoms/heading';
 
 interface Props {
