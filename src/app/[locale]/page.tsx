@@ -1,6 +1,6 @@
 import { getDictionary } from '@/lib/dictionaries';
 import { type Locale } from '@/i18n-config';
-import { serverTrpc } from '../_trpc/serverClient';
+import { api } from '@/trpc/server';
 
 import { Heading } from '@/components/atoms/heading';
 import ToDoList from './_components/ToDoList';
@@ -11,7 +11,7 @@ interface Props {
 
 export default async function Page({ params }: Props) {
   const dict = await getDictionary(params.locale);
-  const todos = await serverTrpc.getTodos();
+  const todos = await api.todo.getTodos.query();
 
   return (
     <div className="max-w-3xl mx-auto p-6">

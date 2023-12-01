@@ -1,9 +1,9 @@
 'use client';
 
-import { trpc } from '../../_trpc/client';
+import { api } from '@/trpc/react';
 
 export default function ToDoList() {
-  const getTodos = trpc.getTodos.useQuery();
+  const getTodos = api.todo.getTodos.useQuery();
 
   return (
     <div>
