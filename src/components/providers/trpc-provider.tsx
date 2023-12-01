@@ -17,7 +17,7 @@ export function TRPCProvider({ children }: Props) {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: `${env.APP_URL}/api/trpc`,
+          url: `${env.NEXT_PUBLIC_APP_URL}/api/trpc`,
         }),
       ],
     }),

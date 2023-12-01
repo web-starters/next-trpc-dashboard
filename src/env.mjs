@@ -6,7 +6,6 @@ import { z } from 'zod';
  */
 const server = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']),
-  APP_URL: z.string().min(1),
 });
 
 /**
@@ -14,7 +13,9 @@ const server = z.object({
  * This way you can ensure the app isn't built with invalid env vars.
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
-const client = z.object({});
+const client = z.object({
+  NEXT_PUBLIC_APP_URL: z.string().min(1),
+});
 
 /**
  * You can't destruct `process.env` as a regular object in the Next.js
@@ -23,7 +24,7 @@ const client = z.object({});
  */
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
-  APP_URL: process.env.APP_URL,
+  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
 };
 
 // Don't touch the part below
