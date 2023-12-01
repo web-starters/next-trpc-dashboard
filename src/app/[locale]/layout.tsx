@@ -8,8 +8,8 @@ import { siteConfig } from '@/configs/site-config';
 import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
-import { TRPCProvider } from '@/providers/trpc-provider';
-import { ThemeProvider } from '@/providers/theme-provider';
+import { TRPCProvider } from '@/components/providers/trpc-provider';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Header } from '@/components/organisms/header';
 import { Footer } from '@/components/organisms/footer';
 
