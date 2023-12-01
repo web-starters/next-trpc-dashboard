@@ -1,10 +1,14 @@
 import '@/styles/globals.css';
+
 import { type Metadata } from 'next';
 import { type ReactNode } from 'react';
+
 import { i18n, type Locale } from '@/i18n-config';
 import { siteConfig } from '@/configs/site-config';
 import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+
+import { TRPCProvider } from '@/providers/trpc-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
 import { Header } from '@/components/organisms/header';
 import { Footer } from '@/components/organisms/footer';
@@ -34,18 +38,20 @@ export default function RootLayout({ children, params }: Props) {
     <html lang={params.locale}>
       <head />
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
+        <TRPCProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
 
-          <main>{children}</main>
+            <main>{children}</main>
 
-          <Footer />
-        </ThemeProvider>
+            <Footer />
+          </ThemeProvider>
+        </TRPCProvider>
       </body>
     </html>
   );
