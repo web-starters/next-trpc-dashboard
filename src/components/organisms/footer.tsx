@@ -1,5 +1,6 @@
 import { siteConfig } from '@/configs/site-config';
 import { cn } from '@/lib/utils';
+
 import { Text, textVariants } from '@/components/atoms/text';
 
 export function Footer() {

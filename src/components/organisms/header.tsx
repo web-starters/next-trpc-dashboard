@@ -1,12 +1,9 @@
 import { Icons } from '@/components/atoms/icons';
-import { LocaleToggle } from '../molecules/locale-toggle';
+import { LocaleToggle } from '@/components/molecules/locale-toggle';
 import { ThemeToggle } from '@/components/molecules/theme-toggle';
 import { Navigation } from '@/components/molecules/navigation';
 
-const navigationItems = [
-  { name: 'Homepage', link: '/' },
-  { name: 'About', link: '/about' },
-];
+const navigationItems = [{ name: 'Homepage', link: '/' }];
 
 export function Header() {
   return (
@@ -18,6 +15,7 @@ export function Header() {
 
         <div className="flex gap-4">
           <LocaleToggle />
+
           <ThemeToggle />
         </div>
       </div>
