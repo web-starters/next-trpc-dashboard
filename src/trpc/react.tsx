@@ -16,7 +16,20 @@ interface Props {
 export const api = createTRPCReact<AppRouter>();
 
 export function TRPCReactProvider({ children, cookies }: Props) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+            refetchOnReconnect: false,
+            retry: false,
+            staleTime: 1000 * 60 * 60 * 24,
+          },
+        },
+      }),
+  );
   const [trpcClient] = useState(() =>
     api.createClient({
       transformer,
