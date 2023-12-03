@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { NEXT_PUBLIC_APP_URL } = env;
 
   return i18n.locales.map(locale => ({
-    url: `${NEXT_PUBLIC_APP_URL}/${locale}`,
+    url: `${NEXT_PUBLIC_APP_URL}/${locale}/signin`,
     lastModified: currentDate,
   }));
 }
