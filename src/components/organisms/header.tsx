@@ -5,8 +5,8 @@ import { getServerAuthSession } from '@/server/auth';
 import { Icons } from '@/components/atoms/icons';
 import { Text } from '@/components/atoms/text';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/atoms/avatar';
-import { LocaleToggle } from '@/components/molecules/locale-toggle';
 import { ThemeToggle } from '@/components/molecules/theme-toggle';
+import { LocaleToggle } from '@/components/molecules/locale-toggle';
 import { Navigation } from '@/components/molecules/navigation';
 import {
   DropdownMenu,
@@ -49,9 +49,8 @@ export async function Header() {
           </DropdownMenu>
 
           <div className="flex gap-4">
-            <LocaleToggle />
-
             <ThemeToggle />
+            <LocaleToggle />
           </div>
         </div>
       </div>
