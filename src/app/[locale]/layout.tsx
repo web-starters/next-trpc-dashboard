@@ -14,8 +14,6 @@ import { cn } from '@/lib/utils';
 import { TRPCReactProvider } from '@/trpc/react';
 
 import { ThemeProvider } from '@/providers/theme-provider';
-import { Header } from '@/components/organisms/header';
-import { Footer } from '@/components/organisms/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -54,11 +52,7 @@ export default function RootLayout({ children, params }: Props) {
               enableSystem
               disableTransitionOnChange
             >
-              <Header />
-
-              <main>{children}</main>
-
-              <Footer />
+              {children}
             </ThemeProvider>
           </NextIntlClientProvider>
         </TRPCReactProvider>
