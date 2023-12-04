@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 
 import { Text, textVariants } from '@/components/atoms/text';
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="w-full p-5 border-t text-sm">
       <div className="flex justify-start flex-col-reverse md:flex-row w-full max-w-7xl mx-auto">
