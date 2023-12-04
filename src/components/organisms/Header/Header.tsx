@@ -1,4 +1,4 @@
-import { getServerAuthSession } from '@/server/auth';
+import { type Session } from 'next-auth';
 
 import { Icons } from '@/components/atoms/icons';
 import { ThemeToggle } from '@/components/molecules/theme-toggle';
@@ -8,9 +8,11 @@ import UserMenu from './UserMenu';
 
 const navigationItems = [{ name: 'Homepage', link: '/' }];
 
-export default async function Header() {
-  const session = await getServerAuthSession();
+interface Props {
+  user: Session['user'];
+}
 
+export default async function Header({ user }: Props) {
   return (
     <header className="w-full p-5 border-b bg-palette-50 dark:bg-palette-900">
       <div className="flex justify-between items-center w-full max-w-7xl mx-auto space-x-10">
@@ -19,7 +21,7 @@ export default async function Header() {
         <Navigation items={navigationItems} />
 
         <div className="flex gap-4">
-          {session?.user ? <UserMenu user={session.user} /> : null}
+          <UserMenu user={user} />
 
           <div className="flex gap-4">
             <ThemeToggle />

@@ -17,7 +17,7 @@ export default async function DashboardLayout({ children }: Props) {
 
   return (
     <>
-      <Header />
+      <Header user={session.user} />
 
       <main>{children}</main>
 
