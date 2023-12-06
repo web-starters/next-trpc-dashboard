@@ -17,11 +17,13 @@ export default async function AuthLayout({ children }: Props) {
 
   return (
     <>
-      <header className="flex justify-center p-5">
+      <header className="flex justify-center px-5 pt-20">
         <Icons.logo className="w-40 h-9" />
       </header>
 
-      <main className="flex flex-col justify-center max-w-md mx-auto p-5">{children}</main>
+      <main className="flex flex-col justify-center max-w-md min-h-[calc(100vh-207px)] md:min-h-[calc(100vh-177px)] mx-auto px-5 py-20">
+        {children}
+      </main>
 
       <Footer />
     </>
