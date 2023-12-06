@@ -22,56 +22,49 @@ const headingVariants = cva('pb-12 scroll-m-20 tracking-tight', {
   },
 });
 
-export enum HeadingTypeEnum {
-  H1 = 'h1',
-  H2 = 'h2',
-  H3 = 'h3',
-  H4 = 'h4',
-  H5 = 'h5',
-  H6 = 'h6',
-}
+export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface HeadingProps extends VariantProps<typeof headingVariants> {
   children: React.ReactNode;
-  type?: HeadingTypeEnum;
+  type?: HeadingType;
   className?: string;
 }
 
 const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({ children, className, type = HeadingTypeEnum.H2, size, weight, ...props }, ref) => {
+  ({ children, className, type = 'h2', size, weight, ...props }, ref) => {
     switch (type) {
-      case HeadingTypeEnum.H1:
+      case 'h1':
         return (
           <h1 ref={ref} className={cn(headingVariants({ size, weight }), className)} {...props}>
             {children}
           </h1>
         );
-      case HeadingTypeEnum.H2:
+      case 'h2':
       default:
         return (
           <h2 ref={ref} className={cn(headingVariants({ size, weight }), className)} {...props}>
             {children}
           </h2>
         );
-      case HeadingTypeEnum.H3:
+      case 'h3':
         return (
           <h3 ref={ref} className={cn(headingVariants({ size, weight }), className)} {...props}>
             {children}
           </h3>
         );
-      case HeadingTypeEnum.H4:
+      case 'h4':
         return (
           <h4 ref={ref} className={cn(headingVariants({ size, weight }), className)} {...props}>
             {children}
           </h4>
         );
-      case HeadingTypeEnum.H5:
+      case 'h5':
         return (
           <h5 ref={ref} className={cn(headingVariants({ size, weight }), className)} {...props}>
             {children}
           </h5>
         );
-      case HeadingTypeEnum.H6:
+      case 'h6':
         return (
           <h6 ref={ref} className={cn(headingVariants({ size, weight }), className)} {...props}>
             {children}
