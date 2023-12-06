@@ -1,4 +1,4 @@
-# next-trpc-dashboard
+<h1 align="center">next-trpc-dashboard</h1>
 
 This is a starter for dashboard applications. It was created using the solutions of [T3 Stack](https://create.t3.gg/) and extended with useful things such as `themes`, `internationalization`, `atomic design`, `unit tests` configuration and nice design.
 
