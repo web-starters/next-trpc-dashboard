@@ -1,12 +1,17 @@
 # next-trpc-dashboard
 
-Next.js dashboard with tRPC
+This is a starter for dashboard applications. It was created using the solutions of [T3 Stack](https://create.t3.gg/) and extended with useful things such as themes, internationalization, atomic design, unit tests configuration.
 
-## Configuration
+## Tech Stack
 
-You have to create an `.env` file in the root directory like `.env` file.
+- [Next.js](https://nextjs.org)
+- [NextAuth.js](https://next-auth.js.org)
+- [Prisma](https://prisma.io)
+- [tRPC](https://trpc.io)
+- [Tailwind CSS](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com/)
 
-## Development
+## Getting Started
 
 Install dependencies:
 
@@ -19,6 +24,8 @@ Start development mode:
 ```shell script
 pnpm run dev
 ```
+
+> You have to create an `.env` file in the root directory like `.env.example` file.
 
 Build project:
 

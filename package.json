@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Next.js dashboard with tRPC",
   "author": "Łukasz Warchoł <coded-bear>",
+  "license": "ISC",
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
