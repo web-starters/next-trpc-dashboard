@@ -1,5 +1,6 @@
 'use client';
 
+import { i18n } from '@/i18n-config';
 import { useLocale } from '@/hooks/useLocale';
 
 import { Icons } from '@/components/atoms/icons';
@@ -10,7 +11,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/molecules/dropdown-menu';
-import { i18n } from '@/i18n-config';
 
 export function LocaleToggle() {
   const { handleLocale } = useLocale();
