@@ -1,5 +1,14 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "global": {},
+  "layout": {
+    "homepage": "Home page",
+    "privacy_policy_and_cookies": "Privacy Policy and Cookies",
+    "logout": "Logout"
+  },
+  "homepage": {
+    "title": "Hello World!"
+  },
+  "signin": {
+    "title": "Sign in"
   }
 }

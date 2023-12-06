@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { signOut } from 'next-auth/react';
 import { type Session } from 'next-auth';
 
@@ -17,6 +18,8 @@ interface Props {
 }
 
 export default function UserMenu({ user }: Props) {
+  const t = useTranslations('layout');
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -30,7 +33,7 @@ export default function UserMenu({ user }: Props) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => signOut({ callbackUrl: '/signin' })}>
-          Logout
+          {t('logout')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

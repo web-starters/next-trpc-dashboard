@@ -6,7 +6,7 @@ import SignInProviders from './_components/SignInProviders';
 
 export default async function Page() {
   const providers = await getProviders();
-  const t = await getTranslations('Index');
+  const t = await getTranslations('signin');
 
   return (
     <div className="text-center">

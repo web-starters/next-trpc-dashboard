@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { type Session } from 'next-auth';
 
 import { Icons } from '@/components/atoms/icons';
@@ -6,13 +7,15 @@ import { LocaleToggle } from '@/components/molecules/locale-toggle';
 import { Navigation } from '@/components/molecules/navigation';
 import UserMenu from './UserMenu';
 
-const navigationItems = [{ name: 'Homepage', link: '/' }];
-
 interface Props {
   user: Session['user'];
 }
 
-export default async function Header({ user }: Props) {
+export default function Header({ user }: Props) {
+  const t = useTranslations('layout');
+
+  const navigationItems = [{ name: t('homepage'), link: '/' }];
+
   return (
     <header className="w-full p-5 border-b bg-palette-50 dark:bg-palette-900">
       <div className="flex justify-between items-center w-full max-w-7xl mx-auto space-x-10">

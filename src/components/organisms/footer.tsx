@@ -1,9 +1,13 @@
+import { useTranslations } from 'next-intl';
+
 import { siteConfig } from '@/configs/site-config';
 import { cn } from '@/lib/utils';
 
 import { Text, textVariants } from '@/components/atoms/text';
 
 export default function Footer() {
+  const t = useTranslations('layout');
+
   return (
     <footer className="w-full p-5 border-t text-sm">
       <div className="flex justify-start flex-col-reverse md:flex-row w-full max-w-7xl mx-auto">
@@ -12,7 +16,7 @@ export default function Footer() {
         </Text>
 
         <a href="#" className={cn(textVariants(), 'md:ml-4 hover:underline')}>
-          Polityka prywatności i cookies
+          {t('privacy_policy_and_cookies')}
         </a>
       </div>
     </footer>
