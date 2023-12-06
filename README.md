@@ -21,22 +21,10 @@ pnpm install
 
 Start development mode:
 
-```shell script
-pnpm run dev
-```
-
 > You have to create an `.env` file in the root directory like `.env.example` file.
 
-Build project:
-
 ```shell script
-pnpm run build
-```
-
-Start production:
-
-```shell script
-pnpm run start
+pnpm dev
 ```
 
 ## Deploy on Vercel
