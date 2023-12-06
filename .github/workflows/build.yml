@@ -6,9 +6,8 @@ env:
   DATABASE_URL: http://localhost
   NEXTAUTH_URL: http://localhost
   NEXTAUTH_SECRET: secret
-  GH_ID: 123
-  GH_SECRET: secret
   GITHUB_ID: 123
+  GITHUB_SECRET: secret
   NEXT_PUBLIC_APP_URL: http://localhost
 
 jobs:
