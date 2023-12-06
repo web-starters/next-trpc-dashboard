@@ -10,7 +10,7 @@ export default async function Page() {
   const todos = await api.todo.getTodos.query();
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto">
       <Heading>{t('title')}</Heading>
 
       <div>
