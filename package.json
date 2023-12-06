@@ -1,7 +1,7 @@
 {
   "name": "next-trpc-dashboard",
   "version": "0.1.0",
-  "description": "Next.js dashboard with tRPC",
+  "description": "Next.js dashboard starter with tRPC",
   "author": "Łukasz Warchoł <coded-bear>",
   "license": "MIT",
   "scripts": {
