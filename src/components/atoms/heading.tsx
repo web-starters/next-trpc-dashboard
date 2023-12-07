@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const headingVariants = cva('pb-12 scroll-m-20 tracking-tight', {
+const headingVariants = cva('scroll-m-20 tracking-tight', {
   variants: {
     size: {
       xs: 'text-xl',
