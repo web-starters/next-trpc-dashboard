@@ -1,20 +1,18 @@
 import { getTranslations } from 'next-intl/server';
-import { type ColumnDef } from '@tanstack/react-table';
 
 import { api } from '@/trpc/server';
-import { type RouterOutputs } from '@/trpc/shared';
 
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { Heading } from '@/components/atoms/heading';
 import { Button } from '@/components/atoms/button';
-import DataTable from '@/components/organisms/DataTable';
-import Modal from '@/components/molecules/Modal';
 import TodoForm from './_components/TodoForm';
-
-const columns: ColumnDef<RouterOutputs['todo']['getOne']>[] = [
-  { accessorKey: 'id', header: 'ID' },
-  { accessorKey: 'name', header: 'Name' },
-  { accessorKey: 'createdBy', header: 'Created by' },
-];
+import TodoTable from './_components/TodoTable';
 
 export default async function Page() {
   const t = await getTranslations('homepage');
@@ -25,12 +23,24 @@ export default async function Page() {
       <div className="flex justify-between items-center gap-4 mb-8">
         <Heading type="h1">{t('title')}</Heading>
 
-        <Modal trigger={<Button>Add</Button>} title="Add todo">
-          <TodoForm />
-        </Modal>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>Add</Button>
+          </DialogTrigger>
+
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>Add todo</DialogTitle>
+            </DialogHeader>
+
+            <div className="grid gap-4 py-4">
+              <TodoForm />
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
 
-      <DataTable columns={columns} data={todos} />
+      <TodoTable data={todos} />
     </div>
   );
 }

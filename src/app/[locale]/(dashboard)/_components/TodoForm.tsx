@@ -15,22 +15,29 @@ const formSchema = z.object({
   name: z.string().min(1, { message: 'This field is required' }),
 });
 
-export default function TodoForm() {
+interface Props {
+  values?: z.infer<typeof formSchema>;
+  itemToUpdate?: string;
+}
+
+export default function TodoForm({ values, itemToUpdate }: Props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
+      name: values?.name || '',
     },
   });
   const createTodo = api.todo.create.useMutation({
-    onSuccess: () => {
-      router.refresh();
-    },
+    onSuccess: () => router.refresh(),
+  });
+  const updateTodo = api.todo.update.useMutation({
+    onSuccess: () => router.refresh(),
   });
   const router = useRouter();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    createTodo.mutate(values);
+    if (itemToUpdate) updateTodo.mutate({ id: itemToUpdate, name: values.name });
+    else createTodo.mutate(values);
   }
 
   return (
