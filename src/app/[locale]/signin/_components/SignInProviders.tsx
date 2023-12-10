@@ -10,7 +10,7 @@ interface Props {
 
 export default function SignInProviders({ providers }: Props) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 mt-8">
       {providers.map(provider => (
         <div key={provider.id}>
           <Button className="w-full" onClick={() => signIn(provider.id, { callbackUrl: '/' })}>

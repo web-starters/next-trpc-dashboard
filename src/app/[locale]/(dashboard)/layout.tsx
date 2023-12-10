@@ -19,7 +19,9 @@ export default async function DashboardLayout({ children }: Props) {
     <>
       <Header user={session.user} />
 
-      <main className="w-full px-5 py-8">{children}</main>
+      <main className="w-full min-h-[calc(100vh-192px)] md:min-h-[calc(100vh-142px)] px-5 py-8">
+        {children}
+      </main>
 
       <Footer />
     </>
