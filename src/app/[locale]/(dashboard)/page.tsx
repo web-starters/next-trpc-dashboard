@@ -2,15 +2,10 @@ import { getTranslations } from 'next-intl/server';
 
 import { api } from '@/trpc/server';
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { Heading } from '@/components/atoms/heading';
 import { Button } from '@/components/atoms/button';
+import FormDialogTemplate from '@/components/templates/FormDialogTemplate';
 import TodoForm from './_components/TodoForm';
 import TodoTable from './_components/TodoTable';
 
@@ -28,15 +23,9 @@ export default async function Page() {
             <Button>Add</Button>
           </DialogTrigger>
 
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Add todo</DialogTitle>
-            </DialogHeader>
-
-            <div className="grid gap-4 py-4">
-              <TodoForm />
-            </div>
-          </DialogContent>
+          <FormDialogTemplate title="Add todo">
+            <TodoForm />
+          </FormDialogTemplate>
         </Dialog>
       </div>
 

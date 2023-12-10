@@ -1,18 +1,11 @@
 'use client';
 
-// import { useTranslations } from 'next-intl';
 import { MoreHorizontal } from 'lucide-react';
 import { type ColumnDef } from '@tanstack/react-table';
 
 import { type RouterOutputs } from '@/trpc/shared';
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { Button } from '@/components/atoms/button';
 import {
   DropdownMenu,
@@ -21,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/molecules/dropdown-menu';
 import DataTable from '@/components/organisms/DataTable';
+import FormDialogTemplate from '@/components/templates/FormDialogTemplate';
 import TodoForm from './TodoForm';
 
 interface Props {
@@ -28,8 +22,6 @@ interface Props {
 }
 
 export default function TodoTable({ data }: Props) {
-  //   const t = useTranslations();
-
   const columns: ColumnDef<RouterOutputs['todo']['getOne']>[] = [
     { accessorKey: 'id', header: 'ID' },
     { accessorKey: 'name', header: 'Name' },
@@ -58,15 +50,9 @@ export default function TodoTable({ data }: Props) {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>Update todo</DialogTitle>
-              </DialogHeader>
-
-              <div className="grid gap-4 py-4">
-                <TodoForm itemToUpdate={item.id} values={{ name: item.name }} />
-              </div>
-            </DialogContent>
+            <FormDialogTemplate title="Update todo">
+              <TodoForm itemToUpdate={item.id} values={{ name: item.name }} />
+            </FormDialogTemplate>
           </Dialog>
         );
       },
