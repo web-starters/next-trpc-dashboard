@@ -7,6 +7,7 @@ import { z } from 'zod';
 
 import { api } from '@/trpc/react';
 
+import { useToast } from '@/components/ui/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/atoms/button';
@@ -28,11 +29,24 @@ export default function TodoForm({ values, itemToUpdate }: Props) {
     },
   });
   const router = useRouter();
+  const { toast } = useToast();
   const createTodo = api.todo.create.useMutation({
-    onSuccess: () => router.refresh(),
+    onSuccess: () => {
+      toast({ title: 'New todo item has been added.', duration: 5000 });
+      router.refresh();
+    },
+    onError: () => {
+      toast({ variant: 'destructive', title: 'Something went wrong.', duration: 5000 });
+    },
   });
   const updateTodo = api.todo.update.useMutation({
-    onSuccess: () => router.refresh(),
+    onSuccess: () => {
+      toast({ title: 'Todo item has been updated.', duration: 5000 });
+      router.refresh();
+    },
+    onError: () => {
+      toast({ variant: 'destructive', title: 'Something went wrong.', duration: 5000 });
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {

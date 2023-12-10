@@ -13,6 +13,7 @@ import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { TRPCReactProvider } from '@/trpc/react';
 
+import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/providers/theme-provider';
 
 export const metadata: Metadata = {
@@ -56,6 +57,8 @@ export default function RootLayout({ children, params }: Props) {
             </ThemeProvider>
           </NextIntlClientProvider>
         </TRPCReactProvider>
+
+        <Toaster />
       </body>
     </html>
   );
