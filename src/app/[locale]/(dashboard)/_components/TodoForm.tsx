@@ -27,13 +27,13 @@ export default function TodoForm({ values, itemToUpdate }: Props) {
       name: values?.name || '',
     },
   });
+  const router = useRouter();
   const createTodo = api.todo.create.useMutation({
     onSuccess: () => router.refresh(),
   });
   const updateTodo = api.todo.update.useMutation({
     onSuccess: () => router.refresh(),
   });
-  const router = useRouter();
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     if (itemToUpdate) updateTodo.mutate({ id: itemToUpdate, name: values.name });
