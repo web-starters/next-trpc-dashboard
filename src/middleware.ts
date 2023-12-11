@@ -5,5 +5,5 @@ import { i18n } from './i18n-config';
 export default createMiddleware(i18n);
 
 export const config = {
-  matcher: ['/((?!_next|robots.txt|sitemap.xml|images|api).*)'],
+  matcher: ['/', '/(pl-PL|en-US)/:path*', '/((?!_next|robots.txt|sitemap.xml|images|api).*)'],
 };

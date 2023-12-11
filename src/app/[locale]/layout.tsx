@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 import { TRPCReactProvider } from '@/trpc/react';
 
 import { Toaster } from '@/components/ui/toaster';
-import { ThemeProvider } from '@/providers/theme-provider';
+import ThemeProvider from '@/components/providers/ThemeProvider';
 
 export const metadata: Metadata = {
   title: {
