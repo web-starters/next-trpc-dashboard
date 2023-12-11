@@ -1,14 +1,14 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import { MoreHorizontal } from 'lucide-react';
 import { type ColumnDef } from '@tanstack/react-table';
 
 import { api } from '@/trpc/react';
 import { type RouterOutputs } from '@/trpc/shared';
-import { useLocale } from '@/hooks/useLocale';
-import { useToast } from '@/components/ui/use-toast';
 
+import { useToast } from '@/components/ui/use-toast';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { AlertDialog, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/atoms/button';
@@ -30,7 +30,7 @@ interface Props {
 export default function TodoTable({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
-  const { locale } = useLocale();
+  const locale = useLocale();
   const removeTodo = api.todo.remove.useMutation({
     onSuccess: () => {
       toast({ title: 'Todo item has been removed.', duration: 5000 });

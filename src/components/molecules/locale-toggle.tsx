@@ -1,7 +1,6 @@
 'use client';
 
-import { i18n } from '@/i18n-config';
-import { useLocale } from '@/hooks/useLocale';
+import { locales, usePathname, useRouter } from '@/lib/navigation';
 
 import { Icons } from '@/components/atoms/icons';
 import { Button } from '@/components/atoms/button';
@@ -13,7 +12,8 @@ import {
 } from '@/components/molecules/dropdown-menu';
 
 export function LocaleToggle() {
-  const { handleLocale } = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <DropdownMenu>
@@ -24,8 +24,8 @@ export function LocaleToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {i18n.locales.map((locale, index) => (
-          <DropdownMenuItem key={index} onClick={() => handleLocale(locale)}>
+        {locales.map((locale, index) => (
+          <DropdownMenuItem key={index} onClick={() => router.replace(pathname, { locale })}>
             {locale}
           </DropdownMenuItem>
         ))}

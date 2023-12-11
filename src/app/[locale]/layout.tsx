@@ -7,10 +7,10 @@ import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
-import { i18n, type Locale } from '@/i18n-config';
 import { siteConfig } from '@/configs/site-config';
 import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+import { type Locale, locales } from '@/lib/navigation';
 import { TRPCReactProvider } from '@/trpc/react';
 
 import { Toaster } from '@/components/ui/toaster';
@@ -33,11 +33,11 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return i18n.locales.map(locale => ({ locale }));
+  return locales.map(locale => ({ locale }));
 }
 
 export default function RootLayout({ children, params }: Props) {
-  if (!i18n.locales.includes(params.locale)) notFound();
+  if (!locales.includes(params.locale)) notFound();
   unstable_setRequestLocale(params.locale);
   const messages = useMessages();
 

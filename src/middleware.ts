@@ -1,8 +1,8 @@
 import createMiddleware from 'next-intl/middleware';
 
-import { i18n } from './i18n-config';
+import { defaultLocale, locales, localePrefix, pathnames } from './lib/navigation';
 
-export default createMiddleware(i18n);
+export default createMiddleware({ defaultLocale, localePrefix, locales, pathnames });
 
 export const config = {
   matcher: ['/', '/(pl-PL|en-US)/:path*', '/((?!_next|robots.txt|sitemap.xml|images|api).*)'],
