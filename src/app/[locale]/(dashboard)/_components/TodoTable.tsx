@@ -6,8 +6,9 @@ import { type ColumnDef } from '@tanstack/react-table';
 
 import { api } from '@/trpc/react';
 import { type RouterOutputs } from '@/trpc/shared';
-
+import { useLocale } from '@/hooks/useLocale';
 import { useToast } from '@/components/ui/use-toast';
+
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { AlertDialog, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/atoms/button';
@@ -29,6 +30,7 @@ interface Props {
 export default function TodoTable({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
+  const { locale } = useLocale();
   const removeTodo = api.todo.remove.useMutation({
     onSuccess: () => {
       toast({ title: 'Todo item has been removed.', duration: 5000 });
@@ -40,9 +42,25 @@ export default function TodoTable({ data }: Props) {
   });
 
   const columns: ColumnDef<RouterOutputs['todo']['getOne']>[] = [
-    { accessorKey: 'id', header: 'ID' },
     { accessorKey: 'name', header: 'Name' },
-    { accessorKey: 'createdBy', header: 'Created by' },
+    {
+      accessorKey: 'updatedAt',
+      header: 'Updated at',
+      cell: ({ row }) => {
+        const updatedAt: Date = row.getValue('updatedAt');
+
+        return updatedAt.toLocaleDateString(locale);
+      },
+    },
+    {
+      accessorKey: 'createdAt',
+      header: 'Created at',
+      cell: ({ row }) => {
+        const createdAt: Date = row.getValue('createdAt');
+
+        return createdAt.toLocaleDateString(locale);
+      },
+    },
     {
       id: 'actions',
       header: 'Actions',
