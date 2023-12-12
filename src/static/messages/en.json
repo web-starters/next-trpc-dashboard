@@ -1,5 +1,11 @@
 {
-  "global": {},
+  "global": {
+    "add": "Add",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "update": "Update",
+    "remove": "Remove"
+  },
   "layout": {
     "homepage": "Home page",
     "privacy_policy_and_cookies": "Privacy Policy and Cookies",
