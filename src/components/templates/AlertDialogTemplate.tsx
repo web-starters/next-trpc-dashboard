@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 import {
   AlertDialogAction,
   AlertDialogCancel,
@@ -13,14 +15,16 @@ interface Props {
 }
 
 export default function AlertDialogTemplate({ title, handleSubmit }: Props) {
+  const t = useTranslations('global');
+
   return (
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>{title}</AlertDialogTitle>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-        <AlertDialogAction onClick={handleSubmit}>Continue</AlertDialogAction>
+        <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
+        <AlertDialogAction onClick={handleSubmit}>{t('submit')}</AlertDialogAction>
       </AlertDialogFooter>
     </AlertDialogContent>
   );

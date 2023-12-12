@@ -11,6 +11,7 @@ import TodoTable from './_components/TodoTable';
 
 export default async function Page() {
   const t = await getTranslations('homepage');
+  const globalT = await getTranslations('global');
   const todos = await api.todo.getAll.query();
 
   return (
@@ -20,7 +21,7 @@ export default async function Page() {
 
         <Dialog>
           <DialogTrigger asChild>
-            <Button>Add</Button>
+            <Button>{globalT('add')}</Button>
           </DialogTrigger>
 
           <FormDialogTemplate title="Add todo">

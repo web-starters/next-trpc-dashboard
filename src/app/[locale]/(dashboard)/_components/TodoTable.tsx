@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { MoreHorizontal } from 'lucide-react';
 import { type ColumnDef } from '@tanstack/react-table';
 
@@ -31,6 +31,7 @@ export default function TodoTable({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
   const locale = useLocale();
+  const t = useTranslations('global');
   const removeTodo = api.todo.remove.useMutation({
     onSuccess: () => {
       toast({ title: 'Todo item has been removed.', duration: 5000 });
@@ -81,10 +82,10 @@ export default function TodoTable({ data }: Props) {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DialogTrigger asChild>
-                    <DropdownMenuItem>Update</DropdownMenuItem>
+                    <DropdownMenuItem>{t('edit')}</DropdownMenuItem>
                   </DialogTrigger>
                   <AlertDialogTrigger asChild>
-                    <DropdownMenuItem>Remove</DropdownMenuItem>
+                    <DropdownMenuItem>{t('remove')}</DropdownMenuItem>
                   </AlertDialogTrigger>
                 </DropdownMenuContent>
               </DropdownMenu>

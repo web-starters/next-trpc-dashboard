@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
@@ -22,6 +23,7 @@ interface Props {
 }
 
 export default function TodoForm({ values, itemToUpdate }: Props) {
+  const t = useTranslations('global');
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -70,7 +72,7 @@ export default function TodoForm({ values, itemToUpdate }: Props) {
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">{t('submit')}</Button>
       </form>
     </Form>
   );
