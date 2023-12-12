@@ -31,40 +31,39 @@ export default function TodoTable({ data }: Props) {
   const router = useRouter();
   const { toast } = useToast();
   const locale = useLocale();
-  const t = useTranslations('global');
+  const globalT = useTranslations('global');
+  const t = useTranslations('homepage.table');
   const removeTodo = api.todo.remove.useMutation({
     onSuccess: () => {
-      toast({ title: 'Todo item has been removed.', duration: 5000 });
+      toast({ title: t('message_removed'), duration: 5000 });
       router.refresh();
     },
     onError: () => {
-      toast({ variant: 'destructive', title: 'Something went wrong.', duration: 5000 });
+      toast({ variant: 'destructive', title: globalT('message_wrong'), duration: 5000 });
     },
   });
 
   const columns: ColumnDef<RouterOutputs['todo']['getOne']>[] = [
-    { accessorKey: 'name', header: 'Name' },
+    { accessorKey: 'name', header: t('name') },
     {
       accessorKey: 'updatedAt',
-      header: 'Updated at',
+      header: t('updated_at'),
       cell: ({ row }) => {
         const updatedAt: Date = row.getValue('updatedAt');
-
         return updatedAt.toLocaleDateString(locale);
       },
     },
     {
       accessorKey: 'createdAt',
-      header: 'Created at',
+      header: t('created_at'),
       cell: ({ row }) => {
         const createdAt: Date = row.getValue('createdAt');
-
         return createdAt.toLocaleDateString(locale);
       },
     },
     {
       id: 'actions',
-      header: 'Actions',
+      header: t('actions'),
       cell: ({ row }) => {
         const item = row.original;
 
@@ -82,21 +81,21 @@ export default function TodoTable({ data }: Props) {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DialogTrigger asChild>
-                    <DropdownMenuItem>{t('edit')}</DropdownMenuItem>
+                    <DropdownMenuItem>{globalT('edit')}</DropdownMenuItem>
                   </DialogTrigger>
                   <AlertDialogTrigger asChild>
-                    <DropdownMenuItem>{t('remove')}</DropdownMenuItem>
+                    <DropdownMenuItem>{globalT('remove')}</DropdownMenuItem>
                   </AlertDialogTrigger>
                 </DropdownMenuContent>
               </DropdownMenu>
 
               <AlertDialogTemplate
-                title={`Are you sure you want to remove ${item.name}`}
+                title={t('question_remove', { name: item.name })}
                 handleSubmit={() => removeTodo.mutate({ id: item.id })}
               />
             </AlertDialog>
 
-            <FormDialogTemplate title="Update todo">
+            <FormDialogTemplate title={`${globalT('edit')} todo`}>
               <TodoForm itemToUpdate={item.id} values={{ name: item.name }} />
             </FormDialogTemplate>
           </Dialog>

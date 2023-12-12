@@ -23,7 +23,8 @@ interface Props {
 }
 
 export default function TodoForm({ values, itemToUpdate }: Props) {
-  const t = useTranslations('global');
+  const globalT = useTranslations('global');
+  const t = useTranslations('homepage.table');
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,20 +35,20 @@ export default function TodoForm({ values, itemToUpdate }: Props) {
   const { toast } = useToast();
   const createTodo = api.todo.create.useMutation({
     onSuccess: () => {
-      toast({ title: 'New todo item has been added.', duration: 5000 });
+      toast({ title: t('message_added'), duration: 5000 });
       router.refresh();
     },
     onError: () => {
-      toast({ variant: 'destructive', title: 'Something went wrong.', duration: 5000 });
+      toast({ variant: 'destructive', title: globalT('message_wrong'), duration: 5000 });
     },
   });
   const updateTodo = api.todo.update.useMutation({
     onSuccess: () => {
-      toast({ title: 'Todo item has been updated.', duration: 5000 });
+      toast({ title: t('message_updated'), duration: 5000 });
       router.refresh();
     },
     onError: () => {
-      toast({ variant: 'destructive', title: 'Something went wrong.', duration: 5000 });
+      toast({ variant: 'destructive', title: globalT('message_wrong'), duration: 5000 });
     },
   });
 
@@ -64,15 +65,15 @@ export default function TodoForm({ values, itemToUpdate }: Props) {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t('name')}</FormLabel>
               <FormControl>
-                <Input placeholder="Name" {...field} />
+                <Input placeholder={t('name')} {...field} />
               </FormControl>
             </FormItem>
           )}
         />
 
-        <Button type="submit">{t('submit')}</Button>
+        <Button type="submit">{globalT('submit')}</Button>
       </form>
     </Form>
   );

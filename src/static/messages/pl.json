@@ -4,7 +4,10 @@
     "submit": "Potwierdź",
     "cancel": "Anuluj",
     "edit": "Edytuj",
-    "remove": "Usuń"
+    "remove": "Usuń",
+    "message_required": "To pole jest wymagane",
+    "message_wrong": "Coś poszło nie tak",
+    "no_results": "Brak rezultatów"
   },
   "layout": {
     "homepage": "Strona główna",
@@ -12,7 +15,17 @@
     "logout": "Wyloguj"
   },
   "homepage": {
-    "title": "Todo lista"
+    "title": "Todo lista",
+    "table": {
+      "name": "Nazwa",
+      "updated_at": "Data aktualizacji",
+      "created_at": "Data utworzenia",
+      "actions": "Akcje",
+      "message_added": "Todo item został dodany",
+      "message_updated": "Todo item został zaktualizowany",
+      "message_removed": "Todo item został usunięty",
+      "question_remove": "Czy na pewno chcesz usunąć {name}?"
+    }
   },
   "signin": {
     "title": "Zaloguj się"

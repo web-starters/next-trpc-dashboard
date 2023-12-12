@@ -4,7 +4,10 @@
     "submit": "Submit",
     "cancel": "Cancel",
     "edit": "Edit",
-    "remove": "Remove"
+    "remove": "Remove",
+    "message_required": "This field is required",
+    "message_wrong": "Something went wrong",
+    "no_results": "No results"
   },
   "layout": {
     "homepage": "Home page",
@@ -12,7 +15,17 @@
     "logout": "Logout"
   },
   "homepage": {
-    "title": "Todo list"
+    "title": "Todo list",
+    "table": {
+      "name": "Name",
+      "updated_at": "Updated at",
+      "created_at": "Created at",
+      "actions": "Actions",
+      "message_added": "Todo item has been added",
+      "message_updated": "Todo item has been updated",
+      "message_removed": "Todo item has been removed",
+      "question_remove": "Are you sure you want to remove {name}?"
+    }
   },
   "signin": {
     "title": "Sign in"
