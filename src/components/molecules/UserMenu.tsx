@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Text } from '@/components/atoms/text';
+import Text from '@/components/atoms/Text';
 
 interface Props {
   user: Session['user'];

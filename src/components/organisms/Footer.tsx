@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { siteConfig } from '@/configs/site-config';
 import { cn } from '@/lib/utils';
 
-import { Text, textVariants } from '@/components/atoms/text';
+import Text, { textVariants } from '@/components/atoms/Text';
 
 export default function Footer() {
   const t = useTranslations('layout');

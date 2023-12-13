@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const textVariants = cva('', {
+export const textVariants = cva('', {
   variants: {
     size: {
       sm: 'text-sm',
@@ -41,4 +41,4 @@ const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
 );
 Text.displayName = 'Text';
 
-export { Text, textVariants };
+export default Text;

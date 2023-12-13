@@ -2,16 +2,16 @@
 
 import { locales, usePathname, useRouter } from '@/lib/navigation';
 
-import { LanguagesIcon } from '@/components/atoms/icons';
-import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { LanguagesIcon } from '@/components/atoms/icons';
 
-export function LocaleToggle() {
+export default function LocaleToggle() {
   const pathname = usePathname();
   const router = useRouter();
 

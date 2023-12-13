@@ -1,7 +1,7 @@
 import { getProviders } from 'next-auth/react';
 import { getTranslations } from 'next-intl/server';
 
-import { Heading } from '@/components/atoms/heading';
+import Heading from '@/components/atoms/Heading';
 import SignInProviders from './_components/SignInProviders';
 
 export async function generateMetadata() {

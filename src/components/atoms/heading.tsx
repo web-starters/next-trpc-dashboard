@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-const headingVariants = cva('scroll-m-20 tracking-tight', {
+export const headingVariants = cva('scroll-m-20 tracking-tight', {
   variants: {
     size: {
       xs: 'text-xl',
@@ -75,4 +75,4 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
 );
 Heading.displayName = 'Heading';
 
-export { Heading, headingVariants };
+export default Heading;

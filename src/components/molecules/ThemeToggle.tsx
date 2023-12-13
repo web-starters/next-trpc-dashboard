@@ -2,16 +2,16 @@
 
 import { useTheme } from 'next-themes';
 
-import { SunIcon, MoonIcon } from '@/components/atoms/icons';
-import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { SunIcon, MoonIcon } from '@/components/atoms/icons';
 
-export function ThemeToggle() {
+export default function ThemeToggle() {
   const { setTheme } = useTheme();
 
   return (

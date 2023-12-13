@@ -4,10 +4,10 @@ import { type Session } from 'next-auth';
 import { Link } from '@/lib/navigation';
 
 import { Logo } from '@/components/atoms/icons';
-import { ThemeToggle } from '@/components/molecules/theme-toggle';
-import { LocaleToggle } from '@/components/molecules/locale-toggle';
-import { Navigation, type NavigationItem } from '@/components/molecules/navigation';
-import UserMenu from './UserMenu';
+import Navigation, { type NavigationItem } from '@/components/molecules/Navigation';
+import UserMenu from '@/components/molecules/UserMenu';
+import ThemeToggle from '@/components/molecules/ThemeToggle';
+import LocaleToggle from '@/components/molecules/LocaleToggle';
 
 interface Props {
   user: Session['user'];

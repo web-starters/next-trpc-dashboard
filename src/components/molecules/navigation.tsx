@@ -19,7 +19,7 @@ interface NavigationProps {
   items: NavigationItem[];
 }
 
-export function Navigation({ items }: NavigationProps) {
+export default function Navigation({ items }: NavigationProps) {
   return (
     <NavigationMenu>
       <NavigationMenuList>

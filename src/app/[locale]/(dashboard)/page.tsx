@@ -3,8 +3,8 @@ import { getTranslations } from 'next-intl/server';
 import { api } from '@/trpc/server';
 
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
-import { Heading } from '@/components/atoms/heading';
 import { Button } from '@/components/ui/button';
+import Heading from '@/components/atoms/Heading';
 import FormDialogTemplate from '@/components/templates/FormDialogTemplate';
 import TodoForm from './_components/TodoForm';
 import TodoTable from './_components/TodoTable';
