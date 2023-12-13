@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { MoreHorizontal } from 'lucide-react';
 import { type ColumnDef } from '@tanstack/react-table';
 
 import { api } from '@/trpc/react';
@@ -18,6 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { MoreHorizontalIcon } from '@/components/atoms/icons';
 import DataTable from '@/components/organisms/DataTable';
 import FormDialogTemplate from '@/components/templates/FormDialogTemplate';
 import AlertDialogTemplate from '@/components/templates/AlertDialogTemplate';
@@ -76,7 +76,7 @@ export default function TodoTable({ data }: Props) {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="w-8 h-8 p-0">
                     <span className="sr-only">Open menu</span>
-                    <MoreHorizontal className="w-4 h-4" />
+                    <MoreHorizontalIcon className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

@@ -3,7 +3,7 @@ import { type Session } from 'next-auth';
 
 import { Link } from '@/lib/navigation';
 
-import { Icons } from '@/components/atoms/icons';
+import { Logo } from '@/components/atoms/icons';
 import { ThemeToggle } from '@/components/molecules/theme-toggle';
 import { LocaleToggle } from '@/components/molecules/locale-toggle';
 import { Navigation, type NavigationItem } from '@/components/molecules/navigation';
@@ -22,7 +22,7 @@ export default function Header({ user }: Props) {
     <header className="w-full p-5 border-b bg-palette-50 dark:bg-palette-900">
       <div className="flex justify-between items-center w-full max-w-7xl mx-auto space-x-10">
         <Link href="/">
-          <Icons.logo className="w-24 h-5" />
+          <Logo className="w-24 h-5" />
         </Link>
 
         <Navigation items={navigationItems} />

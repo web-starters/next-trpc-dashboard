@@ -4,14 +4,14 @@ import { useTranslations } from 'next-intl';
 import { signOut } from 'next-auth/react';
 import { type Session } from 'next-auth';
 
-import { Text } from '@/components/atoms/text';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Text } from '@/components/atoms/text';
 
 interface Props {
   user: Session['user'];

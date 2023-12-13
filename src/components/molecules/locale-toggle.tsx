@@ -2,7 +2,7 @@
 
 import { locales, usePathname, useRouter } from '@/lib/navigation';
 
-import { Icons } from '@/components/atoms/icons';
+import { LanguagesIcon } from '@/components/atoms/icons';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -19,7 +19,7 @@ export function LocaleToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <Icons.languages className="h-[1.2rem] w-[1.2rem]" />
+          <LanguagesIcon className="h-[1.2rem] w-[1.2rem]" />
           <span className="sr-only">Locale theme</span>
         </Button>
       </DropdownMenuTrigger>
