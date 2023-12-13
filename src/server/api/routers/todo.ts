@@ -2,10 +2,6 @@ import { z } from 'zod';
 
 import { createTRPCRouter, protectedProcedure } from '@/server/api/trpc';
 
-export const createTodoInput = z.object({
-  name: z.string().min(1),
-});
-
 export const todoRouter = createTRPCRouter({
   getOne: protectedProcedure.input(z.object({ id: z.string().min(1) })).query(({ ctx, input }) => {
     return ctx.db.todo.findFirst({
@@ -36,20 +32,22 @@ export const todoRouter = createTRPCRouter({
     });
   }),
 
-  create: protectedProcedure.input(createTodoInput).mutation(async ({ ctx, input }) => {
-    return ctx.db.todo.create({
-      select: {
-        id: true,
-        name: true,
-        createdAt: true,
-        updatedAt: true,
-      },
-      data: {
-        name: input.name,
-        createdBy: ctx.session.user.id,
-      },
-    });
-  }),
+  create: protectedProcedure
+    .input(z.object({ name: z.string().min(1) }))
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.todo.create({
+        select: {
+          id: true,
+          name: true,
+          createdAt: true,
+          updatedAt: true,
+        },
+        data: {
+          name: input.name,
+          createdBy: ctx.session.user.id,
+        },
+      });
+    }),
 
   update: protectedProcedure
     .input(z.object({ id: z.string().min(1), name: z.string().min(1) }))

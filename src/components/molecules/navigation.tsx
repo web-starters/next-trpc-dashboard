@@ -8,7 +8,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from '@/components/atoms/navigation-menu';
+} from '@/components/ui/navigation-menu';
 
 export type NavigationItem = {
   name: string;

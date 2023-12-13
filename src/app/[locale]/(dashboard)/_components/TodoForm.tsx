@@ -4,28 +4,29 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type z } from 'zod';
+import { z } from 'zod';
 
 import { api } from '@/trpc/react';
-import { createTodoInput } from '@/server/api/routers/todo';
 
 import { useToast } from '@/components/ui/use-toast';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/atoms/button';
+import { Button } from '@/components/ui/button';
 
-type CreateTodo = z.infer<typeof createTodoInput>;
+const formSchema = z.object({
+  name: z.string().min(1),
+});
 
 interface Props {
-  values?: CreateTodo;
+  values?: z.infer<typeof formSchema>;
   itemToUpdate?: string;
 }
 
 export default function TodoForm({ values, itemToUpdate }: Props) {
   const globalT = useTranslations('global');
   const t = useTranslations('homepage.table');
-  const form = useForm<CreateTodo>({
-    resolver: zodResolver(createTodoInput),
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: values?.name || '',
     },
@@ -51,7 +52,7 @@ export default function TodoForm({ values, itemToUpdate }: Props) {
     },
   });
 
-  function onSubmit(values: CreateTodo) {
+  function onSubmit(values: z.infer<typeof formSchema>) {
     if (itemToUpdate) updateTodo.mutate({ id: itemToUpdate, name: values.name });
     else createTodo.mutate(values);
   }

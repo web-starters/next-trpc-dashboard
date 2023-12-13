@@ -3,13 +3,13 @@
 import { locales, usePathname, useRouter } from '@/lib/navigation';
 
 import { Icons } from '@/components/atoms/icons';
-import { Button } from '@/components/atoms/button';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/molecules/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 
 export function LocaleToggle() {
   const pathname = usePathname();

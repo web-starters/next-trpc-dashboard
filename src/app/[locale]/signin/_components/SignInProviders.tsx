@@ -2,7 +2,7 @@
 
 import { signIn, type ClientSafeProvider } from 'next-auth/react';
 
-import { Button } from '@/components/atoms/button';
+import { Button } from '@/components/ui/button';
 
 interface Props {
   providers: ClientSafeProvider[];

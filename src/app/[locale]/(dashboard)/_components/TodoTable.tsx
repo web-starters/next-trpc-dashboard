@@ -11,13 +11,13 @@ import { type RouterOutputs } from '@/trpc/shared';
 import { useToast } from '@/components/ui/use-toast';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { AlertDialog, AlertDialogTrigger } from '@/components/ui/alert-dialog';
-import { Button } from '@/components/atoms/button';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/molecules/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 import DataTable from '@/components/organisms/DataTable';
 import FormDialogTemplate from '@/components/templates/FormDialogTemplate';
 import AlertDialogTemplate from '@/components/templates/AlertDialogTemplate';
